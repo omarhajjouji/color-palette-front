@@ -1,0 +1,49 @@
+<div class="container  h-100">
+
+  <!-- Display view -->
+  <div  class="row  justify-content-center mt-2 flex-column align-items-center" style="height: 75%;">
+    <img  class="col-lg-8 col-md-10 col-sm-12 "  style=" padding:0;box-shadow: 10px 10px 5px rgba(0,0,0,0.2);"  [src]='thumbnail'>
+    <!-- Loading -->
+    <div *ngIf="loading" style="position: absolute;top:auto">
+      <div class="spinner-grow text-primary ml-1" style="width:3em;height: 3em;"  role="status">
+        <span class="sr-only">Loading...</span>
+      </div>  
+      <div class="spinner-grow text-secondary ml-1" style="width:3em;height: 3em;" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+      <div class="spinner-grow text-success ml-1" style="width:3em;height: 3em;" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+      <div class="spinner-grow text-danger ml-1" style="width:3em;height: 3em;" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+      <div class="spinner-grow text-warning ml-1" style="width:3em;height: 3em;" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+    
+  </div>
+
+  <!-- Choose File View -->
+  <div class="row align-center justify-content-center mt-2">
+    <div class="card pmd-card bg-red text-white bg-dark">
+      <div class="card-body"> 
+          <div class="custom-file pmd-custom-file">
+              <input #fileInput type="file" class="custom-file-input" id="chooseImageBoutton" 
+              accept=".png, .jpeg, .jpg, .gif," (change)="setFileName($event)">
+              <label class="custom-file-label filename" for="customFile">{{file ? file.name : 'Choose Image'}}</label>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Generate boutton -->
+  <div *ngIf="selected" class="row align-center  justify-content-center mt-2">
+    <button id="uploadImageBoutton" class="btn btn-dark" (click)="uploadImage()" >
+      {{generate_message}}
+    </button>
+
+    
+
+  </div>
+</div>
